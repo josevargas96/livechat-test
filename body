@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LiveChat Integration Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .test-section {
+            background: #e8f4fd;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+            border-left: 4px solid #007cba;
+        }
+        .status {
+            background: #d4edda;
+            color: #155724;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        button {
+            background: #007cba;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+        button:hover {
+            background: #005a87;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 LiveChat Integration Test Page</h1>
+        
+        <div class="status">
+            ✅ This page is ready to test your LiveChat integration!
+        </div>
+
+        <div class="test-section">
+            <h2>Testing Instructions:</h2>
+            <ol>
+                <li><strong>Look for the chat widget</strong> - It should appear in the bottom-right corner of the page</li>
+                <li><strong>Click the chat icon</strong> - This will open the chat window</li>
+                <li><strong>Send a test message</strong> - Try sending yourself a message to verify it's working</li>
+                <li><strong>Check responsiveness</strong> - Test on mobile devices too</li>
+            </ol>
+        </div>
+
+        <div class="test-section">
+            <h2>What to Expect:</h2>
+            <ul>
+                <li>A small chat bubble/icon should be visible in the bottom-right corner</li>
+                <li>Clicking it should open a chat window</li>
+                <li>You should be able to type and send messages</li>
+                <li>If configured, you might see automated greetings</li>
+            </ul>
+        </div>
+
+        <div class="test-section">
+            <h2>Test Content:</h2>
+            <p>This is sample content to make the page look more realistic. You can scroll down to test how the chat widget behaves with page scrolling.</p>
+            
+            <h3>Sample Section 1</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+            
+            <h3>Sample Section 2</h3>
+            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            
+            <button onclick="testChatWidget()">Test Chat Widget Programmatically</button>
+            
+            <h3>Sample Section 3</h3>
+            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+        </div>
+
+        <div class="test-section">
+            <h2>Troubleshooting:</h2>
+            <ul>
+                <li><strong>No widget visible:</strong> Check browser console for errors</li>
+                <li><strong>Widget not loading:</strong> Verify your internet connection</li>
+                <li><strong>Widget appears but doesn't work:</strong> Check your LiveChat account settings</li>
+                <li><strong>Mobile issues:</strong> Test on different devices and browsers</li>
+            </ul>
+        </div>
+
+        <p style="margin-top: 50px; text-align: center; color: #666;">
+            <small>This is a test page for LiveChat integration. The chat widget should be visible in the bottom-right corner.</small>
+        </p>
+    </div>
+
+    <script>
+        function testChatWidget() {
+            try {
+                // Try to open the chat widget programmatically
+                if (window.LiveChatWidget) {
+                    window.LiveChatWidget.call('maximize');
+                    alert('Chat widget opened programmatically!');
+                } else {
+                    alert('LiveChat widget is not yet loaded. Please wait a moment and try again.');
+                }
+            } catch (error) {
+                alert('Error testing chat widget: ' + error.message);
+            }
+        }
+
+        // Check if LiveChat is loaded
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                if (window.LiveChatWidget) {
+                    console.log('✅ LiveChat widget loaded successfully!');
+                } else {
+                    console.log('❌ LiveChat widget not detected');
+                }
+            }, 3000);
+        });
+    </script>
+
+    <!-- Start of LiveChat (www.livechat.com) code -->
+    <script>
+        window.__lc = window.__lc || {};
+        window.__lc.license = 11976798;
+        window.__lc.integration_name = "manual_channels";
+        window.__lc.product_name = "livechat";
+        ;(function(n,t,c){function i(n){return e._h?e._h.apply(null,n):e._q.push(n)}var e={_q:[],_h:null,_v:"2.0",on:function(){i(["on",c.call(arguments)])},once:function(){i(["once",c.call(arguments)])},off:function(){i(["off",c.call(arguments)])},get:function(){if(!e._h)throw new Error("[LiveChatWidget] You can't use getters before load.");return i(["get",c.call(arguments)])},call:function(){i(["call",c.call(arguments)])},init:function(){var n=t.createElement("script");n.async=!0,n.type="text/javascript",n.src="https://cdn.livechatinc.com/tracking.js",t.head.appendChild(n)}};!n.__lc.asyncInit&&e.init(),n.LiveChatWidget=n.LiveChatWidget||e}(window,document,[].slice))
+    </script>
+    <noscript><a href="https://www.livechat.com/chat-with/11976798/" rel="nofollow">Chat with us</a>, powered by <a href="https://www.livechat.com/?welcome" rel="noopener nofollow" target="_blank">LiveChat</a></noscript>
+    <!-- End of LiveChat code -->
+
+</body>
+</html>
